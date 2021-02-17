@@ -28,10 +28,9 @@ public class PostController {
         return postRepository.findByTags_Name(pageable, tag);
     }
 
-    // tag1 OR tag2 OR tag3 ...
     @GetMapping(value = "/posts", params = "tags")
     public Page<Post> getPostsWithTags(Pageable pageable, @RequestParam(name = "tags") Set<String> tags) {
-        return postRepository.findByTags_NameIn(pageable, tags);
+        return postRepository.findByTags(pageable, tags, tags.size());
     }
 
     @PostMapping("/posts")
