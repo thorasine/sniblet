@@ -3,6 +3,8 @@ package thorasine.sniblet.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "posts")
@@ -24,6 +26,22 @@ public class Post extends AuditModel {
     @Lob
     private String content;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "posts_tags",
+            joinColumns = @JoinColumn(name = "posts_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "tags_id", referencedColumnName = "id"))
+    private Set<Tag> tags = new HashSet<>();
+
+    public void addTag(Tag tag) {
+        tags.add(tag);
+        tag.getPosts().add(this);
+    }
+
+    public void removeTag(Tag tag) {
+        tags.remove(tag);
+        tag.getPosts().remove(this);
+    }
+
     public Long getId() {
         return id;
     }
@@ -40,6 +58,10 @@ public class Post extends AuditModel {
         return content;
     }
 
+    public Set<Tag> getTags() {
+        return tags;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -50,5 +72,9 @@ public class Post extends AuditModel {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public void setTags(Set<Tag> tags) {
+        this.tags = tags;
     }
 }

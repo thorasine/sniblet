@@ -10,6 +10,7 @@ import thorasine.sniblet.model.Post;
 import thorasine.sniblet.repository.PostRepository;
 
 import javax.validation.Valid;
+import java.util.Set;
 
 @RestController
 public class PostController {
@@ -20,6 +21,17 @@ public class PostController {
     @GetMapping("/posts")
     public Page<Post> getAllPosts(Pageable pageable) {
         return postRepository.findAll(pageable);
+    }
+
+    @GetMapping(value = "/posts", params = "tag")
+    public Page<Post> getPostsWithTag(Pageable pageable, @RequestParam(name = "tag") String tag) {
+        return postRepository.findByTags_Name(pageable, tag);
+    }
+
+    // tag1 OR tag2 OR tag3 ...
+    @GetMapping(value = "/posts", params = "tags")
+    public Page<Post> getPostsWithTags(Pageable pageable, @RequestParam(name = "tags") Set<String> tags) {
+        return postRepository.findByTags_NameIn(pageable, tags);
     }
 
     @PostMapping("/posts")
@@ -36,7 +48,6 @@ public class PostController {
             return postRepository.save(post);
         }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
     }
-
 
     @DeleteMapping("/posts/{postId}")
     public ResponseEntity<?> deletePost(@PathVariable Long postId) {
