@@ -12,5 +12,7 @@ target/
 
 ### VS Code ###
 .vscode/
-
+*.properties
+*.yaml
+*.yml
 
