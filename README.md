@@ -12,5 +12,5 @@ The website will be built with **Angular**, **HTML** and **CSS**.  User authenti
 
 Data persistence is handled by **Hibernate** with **JPA**. The users data is stored in a **MySQL** database.  
 
-Tests will be created with **JUnit 5**, **AssertJ** and **Mockito**.
+Tests will be done with **JUnit 5**, **AssertJ** and **Mockito**.
 
