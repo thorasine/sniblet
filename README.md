@@ -1,4 +1,4 @@
-# Sniblets Blog Template
+# Sniblet Blog Template
 
 Heavily work in progress.
 
