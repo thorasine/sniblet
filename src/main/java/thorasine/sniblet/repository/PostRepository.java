@@ -13,7 +13,8 @@ import java.util.Set;
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
 
-    Page<Post> findByTags_Name(Pageable pageable, String name);
+    // Singular tag
+    //Page<Post> findByTags_Name(Pageable pageable, String name);
 
     // tag1 OR tag2 OR tag3 ...
     //Page<Post> findByTags_NameIn(Set<String> name, Pageable pageable);

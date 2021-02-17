@@ -23,11 +23,6 @@ public class PostController {
         return postRepository.findAll(pageable);
     }
 
-    @GetMapping(value = "/posts", params = "tag")
-    public Page<Post> getPostsWithTag(Pageable pageable, @RequestParam(name = "tag") String tag) {
-        return postRepository.findByTags_Name(pageable, tag);
-    }
-
     @GetMapping(value = "/posts", params = "tags")
     public Page<Post> getPostsWithTags(Pageable pageable, @RequestParam(name = "tags") Set<String> tags) {
         return postRepository.findByTags(pageable, tags, tags.size());
@@ -44,6 +39,7 @@ public class PostController {
             post.setTitle(postRequest.getTitle());
             post.setDescription(postRequest.getDescription());
             post.setContent(postRequest.getContent());
+            post.setTags(postRequest.getTags());
             return postRepository.save(post);
         }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
     }
