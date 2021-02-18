@@ -17,7 +17,7 @@ public class Tag {
 
     @NotNull
     @Size(max = 15)
-    //@Column(unique = true)
+    @Column(unique = true)
     private String name;
 
     @ManyToMany(mappedBy = "tags")

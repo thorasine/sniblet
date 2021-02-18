@@ -39,7 +39,18 @@ public class Post extends AuditModel {
 
     public void removeTag(Tag tag) {
         tags.remove(tag);
-        tag.getPosts().remove(this);
+        if(tag.getPosts() != null){
+            tag.getPosts().remove(this);
+        }
+    }
+
+    public void removeAllTags(){
+        for(Tag tag : tags){
+            if(tag.getPosts() != null){
+                tag.getPosts().remove(this);
+            }
+        }
+        tags.clear();
     }
 
     public Long getId() {
