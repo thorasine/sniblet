@@ -12,7 +12,7 @@ services:
   db:
     image: mysql:8.0.12
     environment:
-      - MYSQL_DATABASE=main
+      - MYSQL_DATABASE=sniblet_main
       - MYSQL_USER=[db-username]
       - MYSQL_PASSWORD=[db-password]
       - MYSQL_ROOT_PASSWORD=[db-root-password]
