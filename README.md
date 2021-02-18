@@ -1,8 +1,8 @@
-# Sniblet Blog
+# Sniblet
 
 ## Work In Progress!
 
-Blog-like site I'm making to exercise different technologies and best practices.
+News-like site I'm making to exercise different technologies and best practices.
 
 # Technical Info
 
