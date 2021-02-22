@@ -2,7 +2,7 @@
 
 ## Work In Progress!
 
-News \ Articles like site I'm making to exercise different technologies and best practices. The main contents are the articles. They are tagged and can be filtered by multiple tags at once and people can also leave comments on them.
+News \ Articles like site I'm making to exercise different technologies and best practices.
 
 # Technical Info
 
