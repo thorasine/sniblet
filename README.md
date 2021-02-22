@@ -2,7 +2,7 @@
 
 ## Work In Progress!
 
-News \ Articles like site I'm making to exercise different technologies and best practices.
+News \ Articles like site.
 
 # Technical Info
 
